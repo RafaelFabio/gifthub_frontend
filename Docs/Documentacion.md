@@ -22,3 +22,18 @@ Uso de ramas: `main` contiene versión utilizable y estable, `develop` aloja pro
 - `instrucciones`
 
 *Notar*: La rama de cada feature será creada oportunamente por la persona encargada de esta (por lo que es posible que al momento de leer esto no todas las ramas existan).
+
+### Frontend
+
+#### Colores
+
+Paleta de colores a utilizar:
+
+| Color | Hex | 50% Lighter |
+| --- | --- | --- |
+| Negro | #333333 | - |
+| Gris | #666666 | - |
+| Blanco | #EEEDF2 | - |
+| Rosado fuerte | #D27E93 | #EFAEBF |
+| Rosado débil | #F2D6E2 | #F9E8F1 |
+| Amarillo | #E6B979 | #F0D7AC |
