@@ -37,3 +37,18 @@ Paleta de colores a utilizar:
 | Rosado fuerte | #D27E93 | #EFAEBF |
 | Rosado débil | #F2D6E2 | #F9E8F1 |
 | Amarillo | #E6B979 | #F0D7AC |
+
+#### Íconos
+
+Los íconos para el proyecto han sido obtenidos de [svgrepo.com](https://www.svgrepo.com/), en específico, de los siguientes links:
+
+- [Heart](https://www.svgrepo.com/svg/513367/ribbon)
+- [Gift](https://www.svgrepo.com/svg/513462/present)
+- [Home](https://www.svgrepo.com/svg/513464/house)
+- [Info](https://www.svgrepo.com/svg/507330/help-circle)
+- [Friends](https://www.svgrepo.com/svg/495588/profile-2user)
+- [User](https://www.svgrepo.com/svg/495804/user)
+- [Add](https://www.svgrepo.com/svg/494973/add-square)
+- [Shuffle](https://www.svgrepo.com/svg/526228/shuffle)
+
+Todos estos íconos se encuentran en `src/assets/icons`, en sus versiones en blanco (`#EEEDF2`) y negro (`#333333`).
