@@ -1,5 +1,6 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 
@@ -7,11 +8,36 @@
   color: #333333;
   background-color: #F2D6E2;
 
+  --pink: #D27E93;
+  --light-pink: #EFAEBF;
+  --pale-pink: #F2D6E2;
+  --light-pale-pink: #F9E8F1;
+  --black: #333333;
+  --grey: #666666;
+  --yellow: #E6B979;
+  --light-yellow: #F0D7AC;
+
+  --overlay: rgba(0,0,0,.3);
+  --pink-overlay: rgba(210, 126, 147, 0.7);
+
+  --yellow-menu: rgba(230, 185, 121, 0.8);
+
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+.font-link{
+  font-family: 'League Spartan', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -26,16 +52,21 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  /* display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; */
 }
 
+ul {
+  list-style-type: none;
+}
+
+/* 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
+} */
 
 button {
   border-radius: 8px;

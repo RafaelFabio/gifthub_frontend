@@ -1,0 +1,45 @@
+.banner{
+    background-color: var(--pink-overlay);
+    color: #fff;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.banner:before {
+    content:'';
+    background: url('../assets/banner-landing.jpg') no-repeat center center/cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+}
+
+.banner .banner-text{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1100px;
+    margin: auto;
+    padding: 1rem;
+}
+
+.banner .banner-text h1{
+    font-family: 'League Spartan', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.banner .banner-text h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.banner .banner-text p{
+    font-size: 1.5rem;
+}

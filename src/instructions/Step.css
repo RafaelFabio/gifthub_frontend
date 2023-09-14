@@ -1,6 +1,7 @@
 .step {
     display: block;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 /* Textos de cada paso (títulos y párrafos) */

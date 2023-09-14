@@ -30,7 +30,7 @@ function Navbar(){
                         <a href='#about' onClick={closeMobileMenu}>Sobre GiftHub</a>
                     </li>
                     <li className='nav-item'>
-                        <a href='#instrucciones' onClick={closeMobileMenu}>Como usar GiftHub?</a>
+                        <a href='#instrucciones' onClick={closeMobileMenu}>¿Cómo usar GiftHub?</a>
                     </li>
                     <li className='nav-item'>
                         <a href='#testimonios' onClick={closeMobileMenu}>Testimonios</a>
