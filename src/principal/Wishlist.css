@@ -9,7 +9,6 @@
     /* Loo máximo es el 50% de la altura de vista (view height) */
     max-height: 50vh;
 
-    background-color: #D27E93;
     border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
@@ -21,4 +20,12 @@
     padding: 15px;
     gap: 15px;
     align-items: center;
+}
+
+.personal-wishlist {
+    background-color: #D27E93;
+}
+
+.friend-wishlist {
+    background-color: #E6B979;
 }

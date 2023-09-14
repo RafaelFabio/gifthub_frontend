@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Wishlist.css';
 import WishCard from './WishCard';
 
-function Wishlist() {
+function Wishlist({ isMine }) {
     // Simulación de los deseos ya creados de un usuario
     const wishlistItems = [
         {
@@ -28,7 +28,7 @@ function Wishlist() {
     ];
 
     return (
-        <div className='wishlist'>
+        <div className={`wishlist ${isMine ? 'personal-wishlist' : 'friend-wishlist'}`}>
             {wishlistItems.map((item, index) => (
                 // Adición de cada deseo a la lista
                 <WishCard
@@ -36,6 +36,7 @@ function Wishlist() {
                     wish={item.wish}
                     description={item.description}
                     price={item.price}
+                    isMine={isMine}
                 />
             ))}
         </div>

@@ -30,3 +30,18 @@ h4 {
     /* Es una columna */
     flex-direction: column;
 }
+
+.gift-button {
+    background-color: #333333;
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-button img {
+    height: 90%;
+}

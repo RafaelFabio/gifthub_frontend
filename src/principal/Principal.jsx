@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Principal.css';
 import Toggle from "./Toggle";
 import NewWish from "./NewWish";
@@ -19,16 +19,24 @@ function Principal() {
                 friendsMode={friendsMode}
                 toggleMode={toggleMode}
             />
-            <div className='principal-content'>
+            <>
                 {!friendsMode &&
-                    <>
+                    <div className='principal-content principal-personal'>
                         <NewWish />
-                        <Wishlist />
-                    </>
+                        <Wishlist
+                            isMine={true} />
+                    </div>
                 }
                 {friendsMode &&
-                    <h1>En progreso...</h1>}
-            </div>
+                    <div className='principal-content principal-friends'>
+                        <Wishlist
+                            isMine={false} />
+                        <Wishlist
+                            isMine={false} />
+                        <Wishlist
+                            isMine={false} />
+                    </div>}
+            </>
         </div>
     );
 }

@@ -8,9 +8,17 @@
 
     /* Contenedor */
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     gap: 5%;
     padding: 20px;
+}
+
+.principal-personal {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.principal-friends {
+    overflow-x: scroll;
+    justify-content: left;
 }
