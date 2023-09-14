@@ -1,53 +1,62 @@
 .new-wish {
+    /* Ancho */
+    max-width: 40%;
+    min-width: calc(600px * 0.9 * 0.9);
+
+    /* Alto */
+    max-height: 90%;
+
+    /* Contenedor */
     align-items: center;
     justify-content: center;
-    max-width: 40%;
-    max-height: 90%;
 }
 
 .new-wish form {
+    max-width: 100%;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 15px;
-    max-width: 100%;
 }
 
 .form-column {
+    max-width: 33%;
+
     display: flex;
     flex-direction: column;
     gap: 15px;
-    max-width: 33%;
 }
 
 .new-wish input {
-    border: none;
     background-color: #EEEDF2;
     color: #333333;
+    border: none;
     border-bottom: 4px dotted #333333;
 }
 
 .wish {
-    font-size: x-large;
     width: 75%;
+    font-size: x-large;
 }
 
 .description {
-    font-size: medium;
     width: 100%;
+    font-size: medium;
 }
 
 .price {
-    font-size: xx-large;
     width: 100%;
+    font-size: xx-large;
 }
 
 .add-button {
     background-color: #EEEDF2;
-    padding: 0px;
     max-width: 33%;
     aspect-ratio: 1;
+
+    padding: 0px;
 }
 
 .add-button img {

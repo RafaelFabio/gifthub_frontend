@@ -1,13 +1,16 @@
 .principal-content {
-    background-color: #EEEDF2;
-    height: 33vw;
     width: 75vw;
+    min-width: calc(600px * 0.9);
+
+    background-color: #EEEDF2;
     margin: 0 auto;
-    padding: 20px;
     border-radius: 5px;
+
+    /* Contenedor */
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 5%;
-    flex-wrap: wrap;
+    padding: 20px;
 }

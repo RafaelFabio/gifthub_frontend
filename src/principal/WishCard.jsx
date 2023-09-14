@@ -7,10 +7,11 @@ function WishCard({ wish, description, price }) {
         <div className='wish-card'>
             <div className='wish-column'>
                 <h2>{wish}</h2>
-                <h3>{description}</h3>
+                <h4><i>{description}</i></h4>
             </div>
+            <h1>$</h1>
             <div className='wish-column'>
-                <h1>{price}</h1>
+                <h2>{price}</h2>
             </div>
         </div>
     );

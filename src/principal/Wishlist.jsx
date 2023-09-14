@@ -8,22 +8,22 @@ function Wishlist() {
         {
             wish: 'Deseo 1',
             description: 'Descripción del deseo 1',
-            price: '$$$',
+            price: '100',
         },
         {
             wish: 'Deseo 2',
             description: 'Descripción del deseo 2',
-            price: '$$$',
+            price: '200',
         },
         {
             wish: 'Deseo 3',
             description: 'Descripción del deseo 3',
-            price: '$$$',
+            price: '300',
         },
         {
             wish: 'Deseo 4',
             description: 'Descripción del deseo 4',
-            price: '$$$',
+            price: '400',
         }
     ];
 
