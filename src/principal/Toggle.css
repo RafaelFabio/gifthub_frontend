@@ -1,0 +1,46 @@
+.toggle-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin: 15px;
+}
+
+.toggle-button {
+    position: relative;
+    background-color: #D27E93;
+    border: none;
+    border-radius: 3em;
+    cursor: pointer;
+    outline: none;
+    width: 6em;
+    height: 3em;
+}
+
+.toggle-button.personal {
+    background-color: #D27E93;
+}
+
+.toggle-button.friends {
+    background-color: #E6B979;
+}
+
+.toggle-circle {
+    top: 10%;
+    position: absolute;
+    aspect-ratio: 1;
+    height: 80%;
+    background-color: #EEEDF2;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle-circle.personal {
+    left: 5%;
+    transform: translateX(0);
+}
+
+.toggle-circle.friends {
+    right: calc(3em * 0.8 + 5%);
+    transform: translateX(100%);
+}

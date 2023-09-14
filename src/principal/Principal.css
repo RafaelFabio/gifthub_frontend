@@ -1,0 +1,13 @@
+.principal-content {
+    background-color: #EEEDF2;
+    height: 33vw;
+    width: 75vw;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    flex-wrap: wrap;
+}

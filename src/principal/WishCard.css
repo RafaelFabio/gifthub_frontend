@@ -1,0 +1,23 @@
+.wish-card {
+    background-color: #EEEDF2;
+    width: 95%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15%;
+    padding: 10px;
+}
+
+.wish-card h1,
+h2,
+h3 {
+    margin: 2px;
+}
+
+.wish-column {
+    display: flex;
+    flex-direction: column;
+    max-width: 33%;
+}

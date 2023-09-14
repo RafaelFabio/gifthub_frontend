@@ -1,0 +1,14 @@
+.wishlist {
+    height: 90%;
+    width: 40%;
+    background-color: #D27E93;
+    /* scroll para ver los todos los deseos */
+    overflow-y: scroll;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
