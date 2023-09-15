@@ -1,0 +1,69 @@
+.new-wish {
+    /* Ancho */
+    max-width: 40%;
+    min-width: calc(600px * 0.9 * 0.9);
+
+    /* Alto */
+    max-height: 90%;
+
+    /* Contenedor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-wish form {
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.form-column {
+    max-width: 33%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.new-wish input {
+    background-color: #EEEDF2;
+    color: #333333;
+    border: none;
+    border-bottom: 4px dotted #333333;
+}
+
+.wish {
+    width: 75%;
+    font-size: x-large;
+}
+
+.description {
+    width: 100%;
+    font-size: medium;
+}
+
+.price {
+    width: 100%;
+    font-size: xx-large;
+}
+
+.add-button {
+    background-color: #EEEDF2;
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-button img {
+    height: 100%;
+}
