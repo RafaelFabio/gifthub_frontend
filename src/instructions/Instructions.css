@@ -3,7 +3,8 @@
     background-color: #EEEDF2;
     /* 80% de la ventana */
     width: 80vw;
-    margin: 0 auto;
+    /* top right bottom left */
+    margin: 150px 10% 20px 10%;
     padding: 20px;
     /* Borde redondeado */
     border-radius: 5px;

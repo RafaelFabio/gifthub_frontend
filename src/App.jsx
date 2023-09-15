@@ -12,7 +12,8 @@ function App() {
       <Navbar />
       <Banner />
       <About />
-      <Instructions />
+      <Instructions
+        inLanding={true} />
       <Footer />
     </div>
   )

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import {HiOutlineBars3, HiOutlineXMark} from 'react-icons/hi2';
-import {Link} from 'react-scroll';
+import { HiOutlineBars3, HiOutlineXMark } from 'react-icons/hi2';
+import { Link } from 'react-scroll';
 
 import logo from '../assets/GiftHub_logo.png';
 
 import './navbar.css';
 
-function Navbar(){
+function Navbar() {
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
@@ -34,7 +34,7 @@ function Navbar(){
                         <Link to='instructions' spy={true} smooth={true} offset={-90} duration={500} onClick={closeMobileMenu}>¿Cómo usar GiftHub?</Link>
                     </li>
                     <li className='nav-item'>
-                        <button className='nav-btn'>Iniciar sesión</button>
+                        <button className='nav-btn'><a href='/instructions'>Iniciar sesión</a></button>
                     </li>
                 </ul>
             </nav>
