@@ -1,5 +1,10 @@
 .principal {
-    margin: 150px auto 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 115px auto 20px auto;
+    gap: 20px;
 }
 
 .principal-content {

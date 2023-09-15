@@ -5,6 +5,9 @@ import NewWish from "./NewWish";
 import Wishlist from './Wishlist';
 import Navigation from '../navigation/Navigation';
 
+import { Link } from 'react-router-dom';
+import shuffleIcon from "../assets/icons/shuffle-black.svg"
+
 function Principal() {
     const [friendsMode, setFriendsMode] = useState(false);
 
@@ -33,14 +36,19 @@ function Principal() {
                         </div>
                     }
                     {friendsMode &&
-                        <div className='principal-content principal-friends'>
-                            <Wishlist
-                                isMine={false} />
-                            <Wishlist
-                                isMine={false} />
-                            <Wishlist
-                                isMine={false} />
-                        </div>}
+                        <>
+                            <Link to="/secret-friend">
+                                <img src={shuffleIcon} className='icon' />
+                            </Link>
+                            <div className='principal-content principal-friends'>
+                                <Wishlist
+                                    isMine={false} />
+                                <Wishlist
+                                    isMine={false} />
+                                <Wishlist
+                                    isMine={false} />
+                            </div>
+                        </>}
                 </>
             </div>
         </>
