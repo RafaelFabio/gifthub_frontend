@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import './Instructions.css';
 import Step from './Step';
+import Navigation from '../navigation/Navigation';
 
 // Iconos (en negro)
 import giftIcon from "../assets/icons/gift-black.svg";
@@ -11,7 +12,7 @@ import homeIcon from "../assets/icons/home-black.svg";
 import infoIcon from "../assets/icons/info-black.svg";
 import shuffleIcon from "../assets/icons/shuffle-black.svg";
 
-function Instructions() {
+function Instructions({ inLanding }) {
     const [currentStep, setCurrentStep] = useState(0); // Comienza en el paso 0, "bienvenida"
 
     const progressBarRef = useRef(null);
@@ -100,46 +101,51 @@ function Instructions() {
     };
 
     return (
-        <div className="instructions-container">
-            <div
-                className="progress-bar"
-                ref={progressBarRef} // Este elemento es el referenciado por progressBarRef
-                onClick={handleProgressBarClick} // Se gatilla la función
-            >
+        <>
+            {!inLanding && <>
+                <Navigation />
+            </>}
+            <div className="instructions-container" style={{ margin: inLanding ? "0 auto" : "150px 10% 20px 10%" }}>
                 <div
-                    className="progress"
-                    // El ancho se ajustará según el progreso
-                    style={{ width: `${calculateCompletionPercentage()}%` }}
-                ></div>
-            </div>
+                    className="progress-bar"
+                    ref={progressBarRef} // Este elemento es el referenciado por progressBarRef
+                    onClick={handleProgressBarClick} // Se gatilla la función
+                >
+                    <div
+                        className="progress"
+                        // El ancho se ajustará según el progreso
+                        style={{ width: `${calculateCompletionPercentage()}%` }}
+                    ></div>
+                </div>
 
-            <div className="instructions-content">
-                {steps.map((step, index) => (
-                    <Step
-                        key={index}
-                        id={index}
-                        title={step.title}
-                        subtitle={step.subtitle}
-                        instructions={step.instructions}
-                        icons={step.icons}
-                        indication={step.indication}
-                        current={currentStep}
-                    />
-                ))}
-            </div>
+                <div className="instructions-content">
+                    {steps.map((step, index) => (
+                        <Step
+                            key={index}
+                            id={index}
+                            title={step.title}
+                            subtitle={step.subtitle}
+                            instructions={step.instructions}
+                            icons={step.icons}
+                            indication={step.indication}
+                            current={currentStep}
+                        />
+                    ))}
+                </div>
 
-            <div className="controls">
-                {/* El botón para retroceder se muestra desde el 1er paso */}
-                {currentStep > 0 && (
-                    <button onClick={() => goToStep(currentStep - 1)}>Anterior</button>
-                )}
+                <div className="controls">
+                    {/* El botón para retroceder se muestra desde el 1er paso */}
+                    {currentStep > 0 && (
+                        <button onClick={() => goToStep(currentStep - 1)}>Anterior</button>
+                    )}
 
-                {/* El botón para avanzar se muestra hasta antes del último paso */}
-                {currentStep < totalSteps && (
-                    <button onClick={() => goToStep(currentStep + 1)}>Siguiente</button>
-                )}
+                    {/* El botón para avanzar se muestra hasta antes del último paso */}
+                    {currentStep < totalSteps && (
+                        <button onClick={() => goToStep(currentStep + 1)}>Siguiente</button>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 
