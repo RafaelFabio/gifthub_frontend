@@ -18,7 +18,7 @@ function Navigation() {
                     <Link to="/landing">
                         <img src={homeIcon} className="icon" />
                     </Link>
-                    <Link to="/">
+                    <Link to="/principal">
                         <img src={heartIcon} className="icon" />
                     </Link>
                     <Link to="/instructions">

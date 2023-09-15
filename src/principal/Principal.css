@@ -1,3 +1,7 @@
+.principal {
+    margin: 150px auto 20px auto;
+}
+
 .principal-content {
     width: 75vw;
     min-width: calc(600px * 0.9);

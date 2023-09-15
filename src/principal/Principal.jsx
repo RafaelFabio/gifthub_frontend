@@ -3,6 +3,7 @@ import './Principal.css';
 import Toggle from "./Toggle";
 import NewWish from "./NewWish";
 import Wishlist from './Wishlist';
+import Navigation from '../navigation/Navigation';
 
 function Principal() {
     const [friendsMode, setFriendsMode] = useState(false);
@@ -14,30 +15,35 @@ function Principal() {
     };
 
     return (
-        <div className="principal">
-            <Toggle
-                friendsMode={friendsMode}
-                toggleMode={toggleMode}
-            />
+        <>
             <>
-                {!friendsMode &&
-                    <div className='principal-content principal-personal'>
-                        <NewWish />
-                        <Wishlist
-                            isMine={true} />
-                    </div>
-                }
-                {friendsMode &&
-                    <div className='principal-content principal-friends'>
-                        <Wishlist
-                            isMine={false} />
-                        <Wishlist
-                            isMine={false} />
-                        <Wishlist
-                            isMine={false} />
-                    </div>}
+                <Navigation />
             </>
-        </div>
+            <div className="principal">
+                <Toggle
+                    friendsMode={friendsMode}
+                    toggleMode={toggleMode}
+                />
+                <>
+                    {!friendsMode &&
+                        <div className='principal-content principal-personal'>
+                            <NewWish />
+                            <Wishlist
+                                isMine={true} />
+                        </div>
+                    }
+                    {friendsMode &&
+                        <div className='principal-content principal-friends'>
+                            <Wishlist
+                                isMine={false} />
+                            <Wishlist
+                                isMine={false} />
+                            <Wishlist
+                                isMine={false} />
+                        </div>}
+                </>
+            </div>
+        </>
     );
 }
 
