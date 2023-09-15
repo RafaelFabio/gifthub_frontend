@@ -1,8 +1,8 @@
 /* Tarjeta contenedora de las instrucciones */
 .instructions-container {
     background-color: #EEEDF2;
-    /* Mitad de la ventana */
-    width: 50vw;
+    /* 80% de la ventana */
+    width: 80vw;
     margin: 0 auto;
     padding: 20px;
     /* Borde redondeado */
