@@ -2,7 +2,7 @@ import './banner.css'
 
 function Banner() {
     return (
-        <div className='banner'>
+        <div className='banner' id='banner'>
             <div className='banner-text'>
                 <span className="font-link">
                     <h1>GiftHub</h1>

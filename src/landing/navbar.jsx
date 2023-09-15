@@ -1,6 +1,6 @@
-//import React from 'react';
 import React, { useState } from 'react';
 import {HiOutlineBars3, HiOutlineXMark} from 'react-icons/hi2';
+import {Link} from 'react-scroll';
 
 import logo from '../assets/GiftHub_logo.png';
 
@@ -14,9 +14,9 @@ function Navbar(){
     return (
         <div className='header'>
             <nav className='navbar'>
-                <a href='/' className='logo'>
+                <Link to='banner' className='logo' spy={true} smooth={true} offset={50} duration={500}>
                     <img src={logo} alt='logo' />
-                </a>
+                </Link>
                 <div className='mobile-menu' onClick={handleClick}>
                     {click ? (<HiOutlineXMark size={30} style={{ color: '#000000' }} />)
                         : (<HiOutlineBars3 size={30} style={{ color: '#000000' }} />)}
@@ -24,19 +24,17 @@ function Navbar(){
                 </div>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className='nav-item'>
-                        <a href='/' onClick={closeMobileMenu}>Home</a>
+                        <Link to='banner' spy={true} smooth={true} offset={0} duration={500} onClick={closeMobileMenu}>Home</Link>
                     </li>
                     <li className='nav-item'>
-                        <a href='#about' onClick={closeMobileMenu}>Sobre GiftHub</a>
+                        <Link to='about' spy={true} smooth={true} offset={-90} duration={500} onClick={closeMobileMenu}>Sobre GiftHub</Link>
+
                     </li>
                     <li className='nav-item'>
-                        <a href='#instrucciones' onClick={closeMobileMenu}>¿Cómo usar GiftHub?</a>
+                        <Link to='instructions' spy={true} smooth={true} offset={-90} duration={500} onClick={closeMobileMenu}>¿Cómo usar GiftHub?</Link>
                     </li>
                     <li className='nav-item'>
-                        <a href='#testimonios' onClick={closeMobileMenu}>Testimonios</a>
-                    </li>
-                    <li className='nav-item'>
-                        <a href='#contacto' onClick={closeMobileMenu}>Contacto</a>
+                        <button className='nav-btn'>Iniciar sesión</button>
                     </li>
                 </ul>
             </nav>

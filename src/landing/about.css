@@ -2,9 +2,7 @@
     /* background-color: #f8f8f8;
     margin: auto;
     padding: 8rem 1rem 0 1rem; */
-    width: 100%;
     background-color: #EEEDF2;
-    /* Mitad de la ventana */
     width: 80vw;
     margin: 0 auto;
     padding: 20px;
@@ -13,10 +11,15 @@
 }
 
 .about .about-container {
-    width: 1240px;
+    width: 80vw;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+.about .about-container img{
+    width: 80%;
+    height: auto;
 }
 
 .about .col-2 {
@@ -29,4 +32,30 @@
 
 .about .instructions-title {
     padding-top: 2rem;
+}
+
+.about h2{
+    font-size: 3rem;
+    color: var(--pink)
+}
+
+.about h3{
+    font-size: 2rem;
+    color: var(--light-pink)
+}
+
+@media screen and (max-width:940px) {
+    .about .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about .about-container img {
+        padding: 2rem;
+        width: 80%;
+    }
+
+    .about .about-container .col-1 {
+        padding: 1rem;
+    }
+    
 }
