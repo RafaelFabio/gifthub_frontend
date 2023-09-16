@@ -1,0 +1,6 @@
+.menu-group {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    left: 44%;
+}

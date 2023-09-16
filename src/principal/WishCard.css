@@ -1,0 +1,47 @@
+.wish-card {
+    /* Es el 95% de su contenedor (wishlist) */
+    width: 95%;
+
+    background-color: #EEEDF2;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    /* Contenedor */
+    display: flex;
+    /* Es una fila */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    padding: 10px;
+}
+
+.wish-card h1,
+.wish-card h2,
+.wish-card h4 {
+    margin: 2px;
+}
+
+.wish-column {
+    max-width: 30%;
+
+    /* Contenedor */
+    display: flex;
+    /* Es una columna */
+    flex-direction: column;
+}
+
+.gift-button {
+    background-color: #333333;
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-button img {
+    height: 90%;
+}

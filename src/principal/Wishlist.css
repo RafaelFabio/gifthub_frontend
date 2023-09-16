@@ -1,0 +1,31 @@
+.wishlist {
+    /* Ancho */
+    width: 40%;
+    /* Lo mínimo es el 90% del mínimo de su contenedor (principal-content) */
+    min-width: calc(600px * 0.9 * 0.9);
+
+    /* Alto */
+    height: 90%;
+    /* Loo máximo es el 50% de la altura de vista (view height) */
+    max-height: 50vh;
+
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    /* Contenedor */
+    /* Scroll para ver los todos los deseos (cuando no quedan en la lista) */
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+    align-items: center;
+}
+
+.personal-wishlist {
+    background-color: #D27E93;
+}
+
+.friend-wishlist {
+    background-color: #E6B979;
+}

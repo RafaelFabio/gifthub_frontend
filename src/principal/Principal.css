@@ -1,0 +1,33 @@
+.principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 115px auto 20px auto;
+    gap: 20px;
+}
+
+.principal-content {
+    width: 75vw;
+    min-width: calc(600px * 0.9);
+
+    background-color: #EEEDF2;
+    margin: 0 auto;
+    border-radius: 5px;
+
+    /* Contenedor */
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    padding: 20px;
+}
+
+.principal-personal {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.principal-friends {
+    overflow-x: scroll;
+    justify-content: left;
+}
