@@ -11,6 +11,8 @@ import heartIcon from "../assets/icons/heart-black.svg";
 import homeIcon from "../assets/icons/home-black.svg";
 import infoIcon from "../assets/icons/info-black.svg";
 import shuffleIcon from "../assets/icons/shuffle-black.svg";
+import addIcon from "../assets/icons/add-black.svg";
+import giftHubLogo from "../assets/GiftHub_logo.png";
 
 function Instructions({ inLanding }) {
     const [currentStep, setCurrentStep] = useState(0); // Comienza en el paso 0, "bienvenida"
@@ -27,7 +29,7 @@ function Instructions({ inLanding }) {
             title: '¡Bienvenid@! 🎉',
             subtitle: 'Paso 0: Te damos la bienvenida',
             instructions: '¡Estamos felices de que hayas encontrado nuestra aplicación! A continuación te enseñaremos paso a paso cómo hacer uso de ella.',
-            icons: [],
+            icons: [giftHubLogo],
             indication: "Haz click en siguiente para comenzar esta guía. También puedes apretar la barra de progreso para saltar entre los pasos."
         },
         {
@@ -48,7 +50,7 @@ function Instructions({ inLanding }) {
             title: 'Lista de deseos ❤️',
             subtitle: 'Paso 3: Conoce y disfruta tu lista de deseos',
             instructions: 'En la página de deseos, se encuentra tu propia lista de deseos, en la cuál puedes añadir tus regalos más deseados. Guarda los regalos en tu lista para que tus amigos sepan qué es lo que deseas, y te lo regalen ;)',
-            icons: [heartIcon],
+            icons: [heartIcon, addIcon],
             indication: "Encuentra tu lista de deseos siguiendo este ícono hacia la página de deseos."
         },
         {
@@ -62,15 +64,15 @@ function Instructions({ inLanding }) {
             title: 'Regala 🎀',
             subtitle: 'Paso 5: Reserva lo que quieres regalar',
             instructions: 'Explora las listas de deseos de tus amigos, y cuando encuentres el regalo ideal para darle, ¡Resérvalo! Así nadie más que tú llegará con ese regalo único y especial.',
-            icons: [giftIcon],
+            icons: [friendsIcon, giftIcon],
             indication: "Encontrarás este ícono debajo de los deseos de tus amigos, haz click en él para reservar."
         },
         {
             title: 'Amigo secreto 🔒',
             subtitle: 'Paso 6: Organiza un amigo secreto',
             instructions: 'Organiza un amigo secreto con tus amigos, de manera que a cada uno se le asigne un regalo de la lista de deseos de otro. Todos podrán sorprenderse con cuál es el regalo de su wishlist que le llegará, ¡Y quién se lo dará!',
-            icons: [shuffleIcon],
-            indication: "Encuentra este ícono en, haz click en él para comenzar a organizar el amigo secreto."
+            icons: [friendsIcon, shuffleIcon],
+            indication: "Encuentra este ícono en el modo amigos de la página de deseos, haz click en él para comenzar a organizar el amigo secreto."
         }
     ];
 

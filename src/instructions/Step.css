@@ -34,3 +34,9 @@
     justify-content: center;
     gap: 10px;
 }
+
+.step h1,
+.step h2,
+.step p {
+    margin: 15px;
+}
