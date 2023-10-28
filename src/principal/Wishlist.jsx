@@ -1,41 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Wishlist.css';
 import WishCard from './WishCard';
+import axios from "axios";
 
 function Wishlist({ isMine }) {
-    // Simulación de los deseos ya creados de un usuario
-    const wishlistItems = [
-        {
-            wish: 'Deseo 1',
-            description: 'Descripción del deseo 1',
-            price: '100',
-        },
-        {
-            wish: 'Deseo 2',
-            description: 'Descripción del deseo 2',
-            price: '200',
-        },
-        {
-            wish: 'Deseo 3',
-            description: 'Descripción del deseo 3',
-            price: '300',
-        },
-        {
-            wish: 'Deseo 4',
-            description: 'Descripción del deseo 4',
-            price: '400',
-        }
-    ];
+    const [wishlistItems, setWishlistItems] = useState({});
+
+    useEffect(() => {
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/products`)
+            .then((response) => {
+                const data = response.data;
+                const items = {};
+                data.map((item) => {
+                    items[item.id] = item
+                });
+                setWishlistItems(items);
+            }).catch((error) => {
+                console.log(error);
+            })
+    }, []);
 
     return (
         <div className={`wishlist ${isMine ? 'personal-wishlist' : 'friend-wishlist'}`}>
-            {wishlistItems.map((item, index) => (
+            {Object.values(wishlistItems).map((wishlistItem) => (
                 // Adición de cada deseo a la lista
                 <WishCard
-                    key={index}
-                    wish={item.wish}
-                    description={item.description}
-                    price={item.price}
+                    key={wishlistItem.id}
+                    wish={wishlistItem.name}
+                    description={wishlistItem.description}
+                    price={wishlistItem.price}
                     isMine={isMine}
                 />
             ))}
