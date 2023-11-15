@@ -31,3 +31,10 @@
     overflow-x: scroll;
     justify-content: left;
 }
+
+.principal-friend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
