@@ -36,6 +36,9 @@ function Navbar() {
                     <li className='nav-item'>
                         <button className='nav-btn'><a href='/instructions'>Iniciar sesión</a></button>
                     </li>
+                    <li className='nav-item'>
+                        <button className='nav-btn'><a href='/register'>Crea tu cuenta!</a></button>
+                    </li>
                 </ul>
             </nav>
         </div>
