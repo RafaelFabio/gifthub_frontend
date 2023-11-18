@@ -6,50 +6,62 @@ import trashIcon from "../assets/icons/trash-white.svg";
 
 import axios from "axios";
 
-function WishCard({ id, wish, description, price, isMine, updateWishlist }) {
-    const currentUser = 1;
+function WishCard({ productId, currentUser, wish, description, price, isMine, updateWishlist }) {
     const [icon, setIcon] = useState(giftIcon);
     const [byMe, setByMe] = useState(false);
     const [byOther, setByOther] = useState(false);
     const [ownedBy, setOwnedBy] = useState(null);
 
     const toggleReservation = async (first) => {
-        console.log(id);
         if (!byMe) {
             // No hay actualmente una reserva del producto
+            // (No está reservado por mí, y se se llegó al botón, no puede estar reservado por otro)
 
-            setByMe(true);
-            setIcon(brokenIcon);
-
-            if (!first) {
-                // Crear la reserva
-                const reservationResponse = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/reservations`, {
-                    product_id: id,
-                    user_id: ownedBy,
-                    friend_id: currentUser
-                });
-
-                console.log(reservationResponse)
+            if (currentUser) {
+                if (!first) {
+                    // Crear la reserva
+                    axios.post(`${import.meta.env.VITE_BACKEND_URL}/reservations`, {
+                        product_id: productId,
+                        user_id: ownedBy,
+                        // El que reserva (currentUser) es el friend_id
+                        friend_id: currentUser
+                    }).then((response) => {
+                        console.log(response)
+                        setByMe(true);
+                        setIcon(brokenIcon);
+                    }).catch((error) => {
+                        console.log(error)
+                    });
+                } else {
+                    // Solo actualizo el estado y botón
+                    setByMe(true);
+                    setIcon(brokenIcon);
+                }
             }
         } else {
-            setByMe(false);
-            setIcon(giftIcon);
+            try {
+                // Recupero la reserva
+                const reservation = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/products/${productId}/reservations`);
+                const data = reservation.data;
+                // (Solo puede haber una reserva, que es la reconocida actualmente)
 
-            // Recupero la reserva
-            const reservation = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/products/${id}/reservations`);
-            const data = reservation.data;
-            // (Solo puede haber una reserva, que es la reconocida actualmente)
+                const response = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/reservations/${data.id}`);
 
-            const response = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/reservations/${data.id}`);
+                setByMe(false);
+                setIcon(giftIcon);
 
-            console.log(response)
+                console.log(response)
+            } catch (error) {
+                console.log(error)
+            }
         }
     }
 
     const deleteWish = async () => {
-        const productResponse = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/products/${id}`);
-
-        updateWishlist();
+        axios.delete(`${import.meta.env.VITE_BACKEND_URL}/products/${productId}`)
+            .then(() => {
+                updateWishlist();
+            });
     }
 
     const handleClick = () => {
@@ -57,13 +69,14 @@ function WishCard({ id, wish, description, price, isMine, updateWishlist }) {
             deleteWish();
         } else {
             toggleReservation(false);
+            // false indica que el estado inicial del botón ya fue seteado antes
         };
-    }
+    };
 
     useEffect(() => {
         if (!isMine) {
             // Se recupera la wishlist a la que pertenece el producto
-            axios.get(`${import.meta.env.VITE_BACKEND_URL}/products/${id}/wishlists`)
+            axios.get(`${import.meta.env.VITE_BACKEND_URL}/products/${productId}/wishlists`)
                 .then((response) => {
                     const data = response.data;
                     setOwnedBy(data.user_id);
@@ -72,19 +85,22 @@ function WishCard({ id, wish, description, price, isMine, updateWishlist }) {
                 });
 
             // Se revisa si ha sido reservado
-            axios.get(`${import.meta.env.VITE_BACKEND_URL}/products/${id}/reservations`)
+            axios.get(`${import.meta.env.VITE_BACKEND_URL}/products/${productId}/reservations`)
                 .then((response) => {
                     const data = response.data;
 
                     if (data) {
+                        // El producto sí cuenta con alguna reserva
                         if (data.friend_id == currentUser) {
                             // Actualizo que sí está reservado por mí
                             toggleReservation(true);
+                            // (true indica que es primera vez que se setea)
                         } else {
+                            // Está reservado por otra persona
                             setByOther(true);
                         }
                     } else {
-                        console.log(`[${id}] No one has reserved this product yet`)
+                        console.log(`[${productId}] No one has reserved this product yet`)
                     }
                 }).catch((error) => {
                     console.log(error);

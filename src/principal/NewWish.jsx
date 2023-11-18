@@ -6,8 +6,7 @@ import addIcon from "../assets/icons/add-black.svg";
 
 import axios from 'axios';
 
-function NewWish({ updateWishlist }) {
-    const currentUser = 1;
+function NewWish({ updateWishlist, currentUser }) {
     const [wish, setWish] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState(0);
