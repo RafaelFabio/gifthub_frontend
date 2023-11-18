@@ -1,18 +1,30 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../authService'; 
 import './banner.css';
 
 function Banner() {
-    const [loginError, setLoginError] = useState(null); // Nuevo estado para manejar mensajes de error en el inicio de sesión
-
+    const [loginError, setLoginError] = useState(null);
+    const navigate = useNavigate()
+    
     const handleLogin = async (event) => {
         event.preventDefault();
 
         try {
-            // Lógica para el inicio de sesión, aún por implementar
-            setLoginError(null); // Limpiar el mensaje de error si no hay errores
+            const email = event.target.email.value;
+            const password = event.target.password.value;
+
+            const token = await loginUser({ email, password });
+
+            console.log(token);
+            localStorage.setItem('jwt', token);
+
+            setLoginError(null);
+            navigate('/principal')
+
         } catch (error) {
             console.error(error.message);
-            setLoginError(error.message); // Establecer el mensaje de error en el estado
+            setLoginError(error.message);
         }
     };
 
@@ -29,9 +41,9 @@ function Banner() {
                 <div className="bubble">
                     <form onSubmit={handleLogin}>
                         <h2>Iniciar sesión</h2>
-                        {loginError && <div className="error-message">{loginError}</div>} {/* Muestra el mensaje de error si existe */}
-                        <label htmlFor="username">Usuario:</label>
-                        <input type="text" id="username" name="username" />
+                        {loginError && <div className="error-message">{loginError}</div>}
+                        <label htmlFor="email">Email:</label>
+                        <input type="text" id="email" name="email" />
 
                         <label htmlFor="password">Contraseña:</label>
                         <input type="password" id="password" name="password" />
@@ -46,4 +58,3 @@ function Banner() {
 }
 
 export default Banner;
-
