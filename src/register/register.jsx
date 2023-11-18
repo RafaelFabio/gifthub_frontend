@@ -26,7 +26,7 @@ function Register() {
             navigate('/landing')
         } catch (error) {
             console.error(error.message);
-            setRegisterError(error.message);
+            setRegisterError('Error en los datos, inténtalo denuevo');
         }
     };
 
@@ -35,7 +35,6 @@ function Register() {
             <div className='register-form'>
                 <form onSubmit={handleRegister}>
                     <h2>Regístrate!</h2>
-                    {registerError && <div className="error-message">{registerError}</div>}
                     <label htmlFor="username">Usuario:</label>
                     <input type="text" id="username" name="username" />
 
@@ -52,6 +51,7 @@ function Register() {
                     <input type="password" id="password" name="password" />
 
                     <button type="submit">Registrarse</button>
+                    {registerError && <div className="error-message">{registerError}</div>}
                 </form>
             </div>
         </div>

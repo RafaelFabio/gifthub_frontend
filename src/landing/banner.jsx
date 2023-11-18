@@ -24,7 +24,7 @@ function Banner() {
 
         } catch (error) {
             console.error(error.message);
-            setLoginError(error.message);
+            setLoginError('Contraseña o Email incorrecto, revisa tus credenciales e intentalo denuevo.');
         }
     };
 
@@ -41,7 +41,6 @@ function Banner() {
                 <div className="bubble">
                     <form onSubmit={handleLogin}>
                         <h2>Iniciar sesión</h2>
-                        {loginError && <div className="error-message">{loginError}</div>}
                         <label htmlFor="email">Email:</label>
                         <input type="text" id="email" name="email" />
 
@@ -49,6 +48,7 @@ function Banner() {
                         <input type="password" id="password" name="password" />
 
                         <button type="submit">Iniciar sesión</button>
+                        {loginError && <div className="error-message">{loginError}</div>}
                     </form>
                     <p>¿No tienes cuenta? <a href="/register">Regístrate aquí</a></p>
                 </div>
