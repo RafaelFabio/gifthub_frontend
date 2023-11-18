@@ -114,14 +114,11 @@ export const isAuthenticated = () => {
 
 export const decodeToken = async (token) => {
   try {
-    const response = await fetch(`${API_URL}/decode`, {
-      method: 'POST',
+    const response = await fetch(`${API_URL}/decode/${token}`, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        token: token
-      })
+      }
     });
 
     if (!response.ok) {
