@@ -35,9 +35,14 @@ function Principal() {
         setFriendsMode(!friendsMode);
     };
 
-    const updateWishlist = () => {
+    const updateWishlist = async () => {
         // Se consulta por los deseos del usuario
-        axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/${currentUser}/products`)
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/${currentUser}/products`,
+            {
+                headers: {
+                    Authorization: `Bearer ${getToken()}`
+                }
+            })
             .then((response) => {
                 const data = response.data;
                 const items = data.map((item) => (
@@ -61,7 +66,12 @@ function Principal() {
 
     const updateFriends = () => {
         // Se consulta por los amigos del usuario actual
-        axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/${currentUser}/friends`)
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/${currentUser}/friends`,
+            {
+                headers: {
+                    Authorization: `Bearer ${getToken()}`
+                }
+            })
             .then((response) => {
                 const data = response.data;
                 const items = {};
