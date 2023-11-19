@@ -3,6 +3,8 @@ import './AddFriend.css';
 
 import axios from "axios";
 
+import { getToken } from "../authService.js"
+
 function AddFriend({ currentUser, updateFriends }) {
     const [friendEmail, setFriendEmail] = useState("");
     const [feedbackMsg, setFeedbackMsg] = useState("");
@@ -12,12 +14,16 @@ function AddFriend({ currentUser, updateFriends }) {
         let friendId = null;
 
         // Buscar el usuario correspondiente al correo
-        axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/email/${friendEmail}`)
+        axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/email/${friendEmail}`, {
+            headers: {
+                Authorization: `Bearer ${getToken()}`
+            }
+        })
             .then((response) => {
                 const data = response.data;
                 friendId = data["id"]
 
-                if (userId) {
+                if (currentUser) {
                     // Crear la amistad entre usuario actual y amigo ingresado
                     axios.post(`${import.meta.env.VITE_BACKEND_URL}/friends`, {
                         user_id_1: currentUser,

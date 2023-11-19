@@ -3,6 +3,8 @@ import './Wishlist.css';
 import WishCard from './WishCard';
 import axios from "axios";
 
+import { getToken } from "../authService.js"
+
 function Wishlist({ isMine, currentUser, userId, userWishlist }) {
     /*
     isMine: bool, indica si la Wishlist es del currentUser
@@ -16,7 +18,12 @@ function Wishlist({ isMine, currentUser, userId, userWishlist }) {
         console.log(`[Wishlist] currentUser: ${currentUser}`)
         if (!isMine) {
             // Si es la lista de un amigo (no del currentUser), userWishlist viene vacío
-            axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/${userId}/products`)
+            axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/${userId}/products`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${getToken()}`
+                    }
+                })
                 .then((response) => {
                     const data = response.data;
                     console.log(data);
