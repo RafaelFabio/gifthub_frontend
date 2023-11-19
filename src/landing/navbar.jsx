@@ -34,7 +34,10 @@ function Navbar() {
                         <Link to='instructions' spy={true} smooth={true} offset={-90} duration={500} onClick={closeMobileMenu}>¿Cómo usar GiftHub?</Link>
                     </li>
                     <li className='nav-item'>
-                        <button className='nav-btn'><a href='/instructions'>Iniciar sesión</a></button>
+                        <button className='nav-btn'><Link to='banner' spy={true} smooth={true} offset={0} duration={500} onClick={closeMobileMenu}>Iniciar Sesión</Link></button>
+                    </li>
+                    <li className='nav-item'>
+                        <button className='nav-btn'><a href='/register'>Crea tu cuenta!</a></button>
                     </li>
                 </ul>
             </nav>

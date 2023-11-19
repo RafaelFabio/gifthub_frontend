@@ -43,3 +43,60 @@
 .banner .banner-text p{
     font-size: 1.5rem;
 }
+
+.banner .login-form {
+    position: absolute;
+    top: 35%; 
+    right: 15%; 
+}
+
+.banner .bubble {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 1rem;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.banner .login-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.banner .login-form label {
+    margin-bottom: 0.5rem;
+    color: var(--pink);
+}
+
+.banner .login-form h2{
+    color: var(--pink)
+}
+.banner .login-form input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc; 
+    background-color: #fff;
+    color: #333; 
+}
+
+.banner .login-form button {
+    background-color: var(--pink-overlay);
+    color: #fff;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.banner .login-form button:hover{
+    background-color: #ff0066;
+}
+
+.banner .login-form p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--pink)
+}
+
+.error-message{
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}

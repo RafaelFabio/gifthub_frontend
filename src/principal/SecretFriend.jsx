@@ -1,21 +1,18 @@
 import { useState } from "react";
 import './SecretFriend.css';
-import userIcon from "../assets/icons/user-black.svg";
+import './AddFriend.css';
 import Navigation from "../navigation/Navigation";
 
 export default function SecretFriend() {
 
-  const [nombre, setNombre] = useState("");
-  const [nombresTabla, setNombresTabla] = useState([]);
+  const [email, setEmail] = useState("");
+  const [emailsTabla, setEmailsTabla] = useState([]);
 
-  function handleChange(event) {
-    setNombre(event.target.value);
-  }
-
-  function agregarNombre() {
-    if (nombre.trim() !== "") {
-      setNombresTabla([...nombresTabla, nombre]);
-      setNombre("");
+  function agregarEmail() {
+    // Checkear que el mail corresponda a uno de sus amigos
+    if (email.trim() !== "") {
+      setEmailsTabla([...emailsTabla, email]);
+      setEmail("");
     }
   }
 
@@ -26,38 +23,29 @@ export default function SecretFriend() {
       </>
       <div className="secret-content">
         <>
-          <h1 className="color-texto">Crea tu amigo secreto!</h1>
-          <div className="color-cuerpo">
-            <h2 className="color-texto">Agrega los nombres de tus amigos a la lista</h2>
-            <input
-              type="text"
-              placeholder="Ingrese un nombre"
-              value={nombre}
-              onChange={handleChange}
+          <h1>Crea tu amigo secreto!</h1>
+          <div className="secret-box">
+            <h2>Añade a tus amigos a la lista!</h2>
+            <form className="add-form">
+              <input
+                type="email"
+                className="email-input"
+                placeholder="Ingresa su email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required />
+              <button
+                type="button"
+                className="submit-btn"
+                onClick={agregarEmail}>Agregar</button>
+            </form>
 
-
-            />
-
-            <button onClick={agregarNombre}>Agregar Nombre</button>
-
-            <table className="table">
-              <thead>
-                <tr>
-                  <th className="color-texto">Nombres</th>
-                </tr>
-              </thead>
-              <tbody className="color-texto">
-                {nombresTabla.map((nombre, index) => (
-                  <tr key={index}>
-                    <td>
-                      {nombre} <img src={userIcon} className="user-icon" />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <h3>Correos</h3>
+            {emailsTabla.map((nombre, index) => (
+              <p key={index}>{nombre}</p>
+            ))}
           </div>
-          <h2 className="boton-sortear">Sortear</h2>
+          <button>Sortear</button>
         </>
       </div>
     </>

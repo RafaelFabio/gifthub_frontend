@@ -4,8 +4,10 @@ import "./Navigation.css"
 import homeIcon from "../assets/icons/home-black.svg";
 import heartIcon from "../assets/icons/heart-black.svg";
 import infoIcon from "../assets/icons/info-black.svg";
-import userIcon from "../assets/icons/user-black.svg";
+import logoutIcon from "../assets/icons/logout-black.svg";
 import giftHubLogo from "../assets/GiftHub_logo.png";
+
+import { logoutUser } from "../authService.js"
 
 function Navigation() {
     return (
@@ -25,8 +27,9 @@ function Navigation() {
                         <img src={infoIcon} className="icon" />
                     </Link>
                 </div>
-                <Link to="/">
-                    <img src={userIcon} className="icon" />
+                {/* Se hace logout del usuario */}
+                <Link to={"/"} onClick={logoutUser}>
+                    <img src={logoutIcon} className="icon" />
                 </Link>
             </nav>
         </div>
