@@ -3,13 +3,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 115px auto 20px auto;
+    margin: 115px auto 50px auto;
     gap: 20px;
 }
 
 .principal-content {
     width: 75vw;
     min-width: calc(600px * 0.9);
+
+    min-height: 300px;
 
     background-color: #EEEDF2;
     margin: 0 auto;
@@ -23,6 +25,8 @@
 }
 
 .principal-personal {
+    padding: 50px;
+    gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -37,4 +41,30 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+}
+
+.empty-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.shuffle-button {
+    background-color: inherit;
+    width: 66px;
+    height: 66px;
+
+    display: flex;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.shuffle-button img {
+    height: 100%;
+}
+
+.white-text {
+    color: #EEEDF2;
 }

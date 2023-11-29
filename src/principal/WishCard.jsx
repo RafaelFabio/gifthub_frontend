@@ -11,6 +11,7 @@ function WishCard({ productId, currentUser, wish, description, price, isMine, up
     const [byMe, setByMe] = useState(false);
     const [byOther, setByOther] = useState(false);
     const [ownedBy, setOwnedBy] = useState(null);
+    const [load, setLoad] = useState(false);
 
     const toggleReservation = async (first) => {
         if (!byMe) {
@@ -102,6 +103,9 @@ function WishCard({ productId, currentUser, wish, description, price, isMine, up
                     } else {
                         console.log(`[${productId}] No one has reserved this product yet`)
                     }
+
+                    // Se carga el componente una vez que ya se sepa qué hacer con el botón
+                    setLoad(true);
                 }).catch((error) => {
                     console.log(error);
                 });
@@ -110,27 +114,29 @@ function WishCard({ productId, currentUser, wish, description, price, isMine, up
     }, []);
 
     // Cada tarjeta es creada con la información que se tiene guardada del deseo
-    return (
-        <div className='wish-card'>
-            <div className='wish-column'>
-                <h2>{wish}</h2>
-                <h4><i>{description}</i></h4>
-            </div>
-            <h1>$</h1>
-            <div className='wish-column'>
-                <h2>{price}</h2>
-            </div>
-            {/* 
+    if (load) {
+        return (
+            <div className='wish-card'>
+                <div className='wish-column'>
+                    <h2>{wish}</h2>
+                    <h4><i>{description}</i></h4>
+                </div>
+                <h1>$</h1>
+                <div className='wish-column'>
+                    <h2>{price}</h2>
+                </div>
+                {/* 
             byOther siempre va a ser falso si el producto es del usuario.
             No se permite reservar si ya fue reservado por otro usuario.
             */}
-            {!byOther &&
-                <button className='gift-button' onClick={handleClick}>
-                    <img src={isMine ? trashIcon : icon} />
-                </button>
-            }
-        </div >
-    );
+                {!byOther &&
+                    <button className='gift-button' onClick={handleClick}>
+                        <img src={isMine ? trashIcon : icon} />
+                    </button>
+                }
+            </div >
+        )
+    };
 }
 
 export default WishCard;

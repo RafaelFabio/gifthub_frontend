@@ -29,8 +29,8 @@ function AddFriend({ currentUser, updateFriends }) {
                         user_id_1: currentUser,
                         user_id_2: friendId
                     })
-                        .then((response) => {
-                            setFeedbackMsg(response.statusText)
+                        .then((respuesta) => {
+                            setFeedbackMsg("¡Amigo añadido con éxito!")
                             // Actualizo los amigos del usuario
                             // (Se actualizan también las listas de deseos de amigos)
                             updateFriends()
@@ -49,7 +49,7 @@ function AddFriend({ currentUser, updateFriends }) {
 
     return (
         <div className="add-friend">
-            <h2>Añade a tus amigos!</h2>
+            <h2>¡Añade a tus amigos!</h2>
             <form className="add-form">
                 <input
                     type="email"
