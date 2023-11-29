@@ -8,6 +8,7 @@
     height: 90%;
     /* Loo máximo es el 50% de la altura de vista (view height) */
     max-height: 50vh;
+    min-height: 300px;
 
     border-radius: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
