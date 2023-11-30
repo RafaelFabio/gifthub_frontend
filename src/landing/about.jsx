@@ -1,5 +1,5 @@
 import './about.css'
-import birthday from '/public/about-birthday.jpg'
+import birthday from '/about-birthday.jpg'
 
 function About() {
     return (

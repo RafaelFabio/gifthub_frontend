@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { HiOutlineBars3, HiOutlineXMark } from 'react-icons/hi2';
 import { Link } from 'react-scroll';
 
-import logo from '/public/GiftHub_logo.png';
+import logo from '/GiftHub_logo.png';
 
 import './navbar.css';
 
