@@ -12,7 +12,7 @@ import homeIcon from "../assets/icons/home-black.svg";
 import infoIcon from "../assets/icons/info-black.svg";
 import shuffleIcon from "../assets/icons/shuffle-black.svg";
 import addIcon from "../assets/icons/add-black.svg";
-import giftHubLogo from "../assets/GiftHub_logo.png";
+import giftHubLogo from "/public/GiftHub_logo.png";
 
 function Instructions({ inLanding }) {
     const [currentStep, setCurrentStep] = useState(0); // Comienza en el paso 0, "bienvenida"
