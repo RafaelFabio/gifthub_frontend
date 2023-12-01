@@ -14,10 +14,10 @@ function Register() {
             const username = event.target.username.value;
             const name = event.target.name.value;
             const email = event.target.email.value;
-            const dob = event.target.dob.value;
+            const birth_date = event.target.birth_date.value;
             const password = event.target.password.value;
 
-            const token = await registerUser({ username, name, email, dob, password });
+            const token = await registerUser({ username, name, email, birth_date, password });
 
             console.log(token);
 
@@ -44,8 +44,8 @@ function Register() {
                     <label htmlFor="email">Correo electrónico:</label>
                     <input type="email" id="email" name="email" />
 
-                    <label htmlFor="dob">Fecha de Nacimiento:</label>
-                    <input type="date" id="dob" name="dob" />
+                    <label htmlFor="birth_date">Fecha de Nacimiento:</label>
+                    <input type="date" id="birth_date" name="birth_date" />
 
                     <label htmlFor="password">Contraseña:</label>
                     <input type="password" id="password" name="password" />

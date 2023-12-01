@@ -4,6 +4,7 @@ import App from "../App";
 import Instructions from "../instructions/Instructions";
 import Principal from "../principal/Principal";
 import SecretFriend from "../principal/SecretFriend";
+import Profile from "../profile/profile";
 import Register from "../register/register";
 import PrivateRoute from './PrivateRoute'; 
 
@@ -21,6 +22,9 @@ function Routing() {
                 </Route>
                 <Route path="/secret-friend" element={<PrivateRoute />}>
                     <Route index element={<SecretFriend/>} />
+                </Route>
+                <Route path="/profile" element={<PrivateRoute />}>
+                    <Route index element={<Profile/>} />
                 </Route>
                 <Route path="/register" element={<Register />} />
             </Routes>
