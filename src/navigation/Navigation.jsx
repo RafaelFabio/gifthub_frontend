@@ -7,8 +7,8 @@ import heartIcon from "../assets/icons/heart-black.svg";
 import infoIcon from "../assets/icons/info-black.svg";
 import logoutIcon from "../assets/icons/logout-black.svg";
 import userIcon from "../assets/icons/user-black.svg";
-import giftHubLogo from "../assets/GiftHub_logo.png";
 import adminIcon from "../assets/icons/admin-black.png";
+import giftHubLogo from "/public/GiftHub_logo.png";
 
 import { logoutUser, getToken, decodeToken, getUserInfo } from "../authService.js"
 
