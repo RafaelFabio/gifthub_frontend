@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUserInfo, updateUserInfo, getToken, decodeToken } from '../authService';
 import './Profile.css';
+import Navigation from '../navigation/Navigation';
 
 function Profile() {
   const [userInfo, setUserInfo] = useState({});
@@ -62,6 +63,7 @@ function Profile() {
 
   return (
     <div className="profile-container">
+        <Navigation />
       <div className="profile-form">
       <h2>Edita tu perfil</h2>
       <div>

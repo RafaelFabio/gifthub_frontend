@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom"
 import "./Navigation.css"
 
@@ -7,10 +8,33 @@ import infoIcon from "../assets/icons/info-black.svg";
 import logoutIcon from "../assets/icons/logout-black.svg";
 import userIcon from "../assets/icons/user-black.svg";
 import giftHubLogo from "../assets/GiftHub_logo.png";
+import adminIcon from "../assets/icons/admin-black.png";
 
-import { logoutUser } from "../authService.js"
+import { logoutUser, getToken, decodeToken, getUserInfo } from "../authService.js"
 
 function Navigation() {
+    const [userRole, setUserRole] = useState('');
+  
+    useEffect(() => {
+        const fetchUserRole = async () => {
+          try {
+            const token = getToken();
+            const decoded = await decodeToken(token);
+            const user_id = decoded["sub"];
+            const user = await getUserInfo(user_id);
+            console.log(user.role)
+            setUserRole(user.role);
+          } catch (error) {
+            console.error('Error fetching user role:', error);
+          }
+        };
+    
+        fetchUserRole();
+      }, []);
+    
+  
+    const isAdmin = userRole === 'admin';
+
     return (
         <div className='header'>
             <nav className='navbar'>
@@ -27,6 +51,11 @@ function Navigation() {
                     <Link to="/instructions">
                         <img src={infoIcon} className="icon" />
                     </Link>
+                    {isAdmin && (
+                        <Link to="/admin">
+                        <img src={adminIcon} className="icon" alt="Admin" />
+                        </Link>
+                    )}
                 </div>
                 <div className="menu-group2">
                     <Link to={"/profile"}>

@@ -1,12 +1,12 @@
-.profile-container {
+.admin-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px; /* Ajusta el margen superior según tus preferencias */
   }
-  
-  .profile-form {
+
+  .user-list{
     width: 300px;
     padding: 20px;
     border: 1px solid #ccc;
@@ -14,33 +14,22 @@
     background-color: white;
     margin-top: 120px;
   }
-  
-  .profile-form form {
+
+  .user-list ul{
     display: flex;
     flex-direction: column;
   }
-  
-  .profile-form label {
+
+  .user-list li{
     margin-bottom: 0.5rem;
-    color: var(--pink);
     margin-right: 10px;
   }
-  
-  .profile-form h2 {
+
+  .user-list h2{
     color: var(--pink);
   }
-  
-  .profile-form input {
-    margin-bottom: 1rem;
-    margin-right: 10px;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-  }
-  
-  .profile-form button {
+
+  .user-list button {
     background-color: var(--pink-overlay);
     color: #fff;
     padding: 0.5rem;
@@ -52,7 +41,7 @@
     margin-bottom: 10px; 
   }
   
-  .profile-form button:hover {
+  .user-list button:hover {
     background-color: #ff0066;
   }
   
@@ -60,12 +49,4 @@
     color: red;
     font-size: 0.8rem;
     margin-top: 0.5rem;
-  }
-
-  button#volverboton {
-    background-color: var(--light-yellow);
-  }
-  
-  #volverboton:hover {
-    background-color: var(--yellow);
   }
