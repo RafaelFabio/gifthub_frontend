@@ -50,6 +50,29 @@ export const registerUser = async (userData) => {
   }
 };
 
+export const deleteUser = async(userId) => {
+  try {
+    const response = await fetch(`${API_URL}/users/${userId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${getToken()}`,
+      },
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`Error al eliminar usuario: ${errorData.message}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
 export const getUserInfo = async (userId) => {
   try {
     const response = await fetch(`${API_URL}/users/${userId}`, {
@@ -130,6 +153,29 @@ export const decodeToken = async (token) => {
     return decoded;
   } catch (error) {
     console.error(error);
+    throw error;
+  }
+};
+
+export const getUsers = async () => {
+  try {
+    const response = await fetch(`${API_URL}/users`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      // Si la respuesta no es exitosa, lanza un error personalizado
+      throw new Error(`Error en getUsers: ${response.statusText}`);
+    }
+
+    const users = await response.json();
+    return users;
+  } catch (error) {
+    // Manejo de errores
+    console.error('Error en getUsers:', error.message);
     throw error;
   }
 };
