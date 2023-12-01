@@ -46,7 +46,7 @@
 }
 
 .register-form button:hover {
-    background-color: #ff0066; /* Cambia el color al pasar el ratón sobre el botón */
+    background-color: #ff0066;
 }
 
 .error-message{

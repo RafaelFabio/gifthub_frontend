@@ -1,0 +1,71 @@
+.profile-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Ajusta el margen superior según tus preferencias */
+  }
+  
+  .profile-form {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 20px;
+  }
+  
+  .profile-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-form label {
+    margin-bottom: 0.5rem;
+    color: var(--pink);
+    margin-right: 10px;
+  }
+  
+  .profile-form h2 {
+    color: var(--pink);
+  }
+  
+  .profile-form input {
+    margin-bottom: 1rem;
+    margin-right: 10px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .profile-form button {
+    background-color: var(--pink-overlay);
+    color: #fff;
+    padding: 0.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px; 
+  }
+  
+  .profile-form button:hover {
+    background-color: #ff0066;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+
+  button#volverboton {
+    background-color: var(--light-yellow);
+  }
+  
+  #volverboton:hover {
+    background-color: var(--yellow);
+  }
