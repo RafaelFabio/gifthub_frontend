@@ -1,56 +1,52 @@
-.register {
+.admin-container {
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-}
+    margin-top: 20px; /* Ajusta el margen superior según tus preferencias */
+  }
 
-.register-form {
+  .user-list{
     width: 300px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: white;
-}
+    margin-top: 120px;
+  }
 
-.register-form form {
+  .user-list ul{
     display: flex;
     flex-direction: column;
-}
+  }
 
-.register-form label {
+  .user-list li{
     margin-bottom: 0.5rem;
+    margin-right: 10px;
+  }
+
+  .user-list h2{
     color: var(--pink);
-}
+  }
 
-.register-form h2 {
-    color: var(--pink)
-}
-
-.register-form input {
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333; 
-}
-
-.register-form button {
+  .user-list button {
     background-color: var(--pink-overlay);
     color: #fff;
     padding: 0.5rem;
     cursor: pointer;
     border: none;
     border-radius: 5px;
-}
-
-.register-form button:hover {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px; 
+  }
+  
+  .user-list button:hover {
     background-color: #ff0066;
-}
-
-.error-message{
+  }
+  
+  .error-message {
     color: red;
     font-size: 0.8rem;
     margin-top: 0.5rem;
-}
+  }

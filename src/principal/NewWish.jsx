@@ -9,7 +9,7 @@ import axios from 'axios';
 function NewWish({ updateWishlist, currentUser }) {
     const [wish, setWish] = useState('');
     const [description, setDescription] = useState('');
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState(null);
 
     const handleSubmit = async () => {
         try {
@@ -17,7 +17,7 @@ function NewWish({ updateWishlist, currentUser }) {
             const productResponse = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/products`, {
                 name: wish,
                 description: description,
-                price: price,
+                price: Number(price),
             });
 
             // Añadirlo a la wishlist
@@ -33,7 +33,7 @@ function NewWish({ updateWishlist, currentUser }) {
             // Devolver formulario al estado inicial
             setWish('');
             setDescription('');
-            setPrice(0);
+            setPrice(null);
         } catch (error) {
             console.error(error);
         }
@@ -62,9 +62,9 @@ function NewWish({ updateWishlist, currentUser }) {
                 <div className='form-column'>
                     <input className='price'
                         type="number"
-                        placeholder='0,0'
+                        placeholder='0'
                         value={price}
-                        onChange={(e) => setPrice(Number(e.target.value))}
+                        onChange={(e) => setPrice(e.target.value)}
                         required
                     />
                 </div>

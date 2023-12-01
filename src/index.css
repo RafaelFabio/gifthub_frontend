@@ -17,7 +17,7 @@
   --yellow: #E6B979;
   --light-yellow: #F0D7AC;
 
-  --overlay: rgba(0,0,0,.3);
+  --overlay: rgba(0, 0, 0, .3);
   --pink-overlay: rgba(210, 126, 147, 0.8);
 
   --yellow-menu: rgba(230, 185, 121, 0.8);
@@ -30,7 +30,7 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.font-link{
+.font-link {
   font-family: 'League Spartan', sans-serif;
 }
 
@@ -76,15 +76,6 @@ button {
   transition: border-color 0.25s;
 }
 
-button:hover {
-  border-color: #646cff;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -98,4 +89,15 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(238, 237, 242, 0.75);
+  border-radius: 10px;
 }
