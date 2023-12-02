@@ -34,7 +34,7 @@ function Register() {
         <div className='register'>
             <div className='register-form'>
                 <form onSubmit={handleRegister}>
-                    <h2>Regístrate!</h2>
+                    <h2>¡Regístrate!</h2>
                     <label htmlFor="username">Usuario:</label>
                     <input type="text" id="username" name="username" />
 
@@ -50,6 +50,7 @@ function Register() {
                     <label htmlFor="password">Contraseña:</label>
                     <input type="password" id="password" name="password" />
 
+                    <p className='mensaje'><i>Serás redirigido para iniciar sesión</i></p>
                     <button type="submit">Registrarse</button>
                     {registerError && <div className="error-message">{registerError}</div>}
                 </form>

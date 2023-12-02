@@ -33,7 +33,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
-    color: #333; 
+    color: #333;
 }
 
 .register-form button {
@@ -49,8 +49,15 @@
     background-color: #ff0066;
 }
 
-.error-message{
+.error-message {
     color: red;
     font-size: 0.8rem;
     margin-top: 0.5rem;
+}
+
+.mensaje {
+    display: flex;
+    margin-bottom: 15px;
+    width: 100%;
+    justify-content: center;
 }
