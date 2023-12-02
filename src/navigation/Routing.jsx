@@ -7,7 +7,7 @@ import SecretFriend from "../principal/SecretFriend";
 import Profile from "../profile/profile";
 import Register from "../register/register";
 import AdminDashboard from '../admin/adminDash';
-import PrivateRoute from './PrivateRoute'; 
+import PrivateRoute from './PrivateRoute';
 import AdminRoute from './AdminRoute'
 
 function Routing() {
@@ -20,16 +20,13 @@ function Routing() {
                     <Route index element={<Principal />} />
                 </Route>
                 <Route path="/instructions" element={<PrivateRoute />}>
-                    <Route index element= {<Instructions inLanding={false} />} />
+                    <Route index element={<Instructions inLanding={false} />} />
                 </Route>
-                <Route path="/secret-friend" element={<PrivateRoute />}>
-                    <Route index element={<SecretFriend/>} />
-                </Route>
-                <Route path="/profile" element={<AdminRoute />}>
-                    <Route index element={<Profile/>} />
+                <Route path="/profile" element={<PrivateRoute />}>
+                    <Route index element={<Profile />} />
                 </Route>
                 <Route path="/admin" element={<AdminRoute />}>
-                    <Route index element={<AdminDashboard/>} />
+                    <Route index element={<AdminDashboard />} />
                 </Route>
                 <Route path="/register" element={<Register />} />
             </Routes>

@@ -109,7 +109,9 @@ function WishCard({ productId, currentUser, wish, description, price, isMine, up
                 }).catch((error) => {
                     console.log(error);
                 });
-        }
+        } else {
+            setLoad(true);
+        };
 
     }, []);
 

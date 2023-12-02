@@ -38,7 +38,7 @@ function AdminDashboard() {
         <ul>
           {userList.map((user) => (
             <li key={user.id}>
-              {user.username}{' '}
+              @{user.username}{' '}
               <button onClick={() => handleDeleteUser(user.id)}>Eliminar</button>
             </li>
           ))}

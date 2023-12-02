@@ -190,15 +190,16 @@ function Principal() {
                                     <NewWish
                                         updateWishlist={updateWishlist}
                                         currentUser={currentUser} />
-                                    {userWishlist.length === 0 ?
-                                        <div className='empty-list wishlist personal-wishlist'>
-                                            <h2>¡Añade tus deseos para verlos aquí!</h2>
-                                        </div>
-                                        : <Wishlist
+                                    {userWishlist.length !== 0 ?
+                                        <Wishlist
                                             isMine={true}
                                             currentUser={currentUser}
                                             userId={currentUser}
                                             userWishlist={userWishlist} />
+                                        :
+                                        <div className='empty-list wishlist personal-wishlist'>
+                                            <h2>¡Añade tus deseos para verlos aquí!</h2>
+                                        </div>
                                     }
                                 </div>
                                 <h2>¡Para que sepan cuándo regalarte!</h2>

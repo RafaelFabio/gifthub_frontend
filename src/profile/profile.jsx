@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUserInfo, updateUserInfo, getToken, decodeToken } from '../authService';
-import './Profile.css';
+import './profile.css';
 import Navigation from '../navigation/Navigation';
 
 function Profile() {
@@ -63,48 +63,48 @@ function Profile() {
 
   return (
     <div className="profile-container">
-        <Navigation />
+      <Navigation />
       <div className="profile-form">
-      <h2>Edita tu perfil</h2>
-      <div>
-        <label>Nombre de Usuario:</label>
-        <div>{userInfo.username}</div>
-      </div>
-      <div>
-        <label>Nombre:</label>
-        {editField === 'name' ? (
-          <input
-            type="text"
-            name="name"
-            value={userInfo.name}
-            onChange={handleInputChange}
-          />
-        ) : (
-          <div>{userInfo.name}</div>
-        )}
-        <button onClick={() => handleEdit('name')}>Editar</button>
-        {editField === 'name' && (
-          <button onClick={handleSave}>Guardar</button>
-        )}
-      </div>
-      <div>
-        <label>Correo electrónico:</label>
-        {editField === 'email' ? (
-          <input
-            type="email"
-            name="email"
-            value={userInfo.email}
-            onChange={handleInputChange}
-          />
-        ) : (
-          <div>{userInfo.email}</div>
-        )}
-        <button onClick={() => handleEdit('email')}>Editar</button>
-        {editField === 'email' && (
-          <button onClick={handleSave}>Guardar</button>
-        )}
-      </div>
-      {/* <div>
+        <h2>Edita tu perfil</h2>
+        <div>
+          <label>Nombre de Usuario:</label>
+          <div>{userInfo.username}</div>
+        </div>
+        <div>
+          <label>Nombre:</label>
+          {editField === 'name' ? (
+            <input
+              type="text"
+              name="name"
+              value={userInfo.name}
+              onChange={handleInputChange}
+            />
+          ) : (
+            <div>{userInfo.name}</div>
+          )}
+          <button onClick={() => handleEdit('name')}>Editar</button>
+          {editField === 'name' && (
+            <button onClick={handleSave}>Guardar</button>
+          )}
+        </div>
+        <div>
+          <label>Correo electrónico:</label>
+          {editField === 'email' ? (
+            <input
+              type="email"
+              name="email"
+              value={userInfo.email}
+              onChange={handleInputChange}
+            />
+          ) : (
+            <div>{userInfo.email}</div>
+          )}
+          <button onClick={() => handleEdit('email')}>Editar</button>
+          {editField === 'email' && (
+            <button onClick={handleSave}>Guardar</button>
+          )}
+        </div>
+        {/* <div>
         <label>Fecha de Nacimiento:</label>
         {editField === 'dob' ? (
           <input
@@ -121,25 +121,25 @@ function Profile() {
           <button onClick={handleSave}>Guardar</button>
         )}
       </div> */}
-      <div>
-        <label>Contraseña:</label>
-        {editField === 'password' ? (
-          <input
-            type="password"
-            name="password"
-            value={newPassword}
-            onChange={handleInputChange}
-          />
-        ) : (
-          <div>********</div>
-        )}
-        <button onClick={() => handleEdit('password')}>Editar</button>
-        {editField === 'password' && (
-          <button onClick={handleSave}>Guardar</button>
-        )}
+        <div>
+          <label>Contraseña:</label>
+          {editField === 'password' ? (
+            <input
+              type="password"
+              name="password"
+              value={newPassword}
+              onChange={handleInputChange}
+            />
+          ) : (
+            <div>********</div>
+          )}
+          <button onClick={() => handleEdit('password')}>Editar</button>
+          {editField === 'password' && (
+            <button onClick={handleSave}>Guardar</button>
+          )}
+        </div>
+        <button id="volverboton" onClick={() => navigate('/principal')}>Volver</button>
       </div>
-      <button id="volverboton" onClick={() => navigate('/principal')}>Volver</button>
-    </div>
     </div>
   );
 }

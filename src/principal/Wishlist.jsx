@@ -28,7 +28,6 @@ function Wishlist({ isMine, currentUser, userId, calendar, userWishlist }) {
                 })
                 .then((response) => {
                     const data = response.data;
-                    console.log(data);
                     const items = data.map((item) => (
                         <WishCard
                             key={item.id}
@@ -75,7 +74,7 @@ function Wishlist({ isMine, currentUser, userId, calendar, userWishlist }) {
         <div className={`wishlist ${isMine ? 'personal-wishlist' : 'friend-wishlist'}`}>
             {/* userWishlist es null si no corresponde a la WishList del currentUser 
             (sino no va a haber sido enviado) */}
-            {userWishlist ? userWishlist : (calendar ? events : wishlistItems)}
+            {isMine ? userWishlist : (calendar ? events : wishlistItems)}
         </div>
     );
 }

@@ -50,7 +50,7 @@ export const registerUser = async (userData) => {
   }
 };
 
-export const deleteUser = async(userId) => {
+export const deleteUser = async (userId) => {
   try {
     const response = await fetch(`${API_URL}/users/${userId}`, {
       method: 'DELETE',
@@ -64,9 +64,6 @@ export const deleteUser = async(userId) => {
       const errorData = await response.json();
       throw new Error(`Error al eliminar usuario: ${errorData.message}`);
     }
-
-    const data = await response.json();
-    return data;
   } catch (error) {
     console.error(error);
     throw error;
@@ -163,6 +160,7 @@ export const getUsers = async () => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${getToken()}`
       },
     });
 

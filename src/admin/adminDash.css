@@ -1,52 +1,65 @@
 .admin-container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px; /* Ajusta el margen superior según tus preferencias */
-  }
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  /* Ajusta el margen superior según tus preferencias */
+}
 
-  .user-list{
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: white;
-    margin-top: 120px;
-  }
+.user-list {
+  min-width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .user-list ul{
-    display: flex;
-    flex-direction: column;
-  }
+.user-list ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: end;
+  padding: 20px;
+}
 
-  .user-list li{
-    margin-bottom: 0.5rem;
-    margin-right: 10px;
-  }
+.user-list li {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.5rem;
+  margin-right: 10px;
+  gap: 15px;
+  align-items: center;
+}
 
-  .user-list h2{
-    color: var(--pink);
-  }
+.user-list h2 {
+  color: var(--pink);
+}
 
-  .user-list button {
-    background-color: var(--pink-overlay);
-    color: #fff;
-    padding: 0.5rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px; 
-  }
-  
-  .user-list button:hover {
-    background-color: #ff0066;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-  }
+.user-list button {
+  background-color: var(--pink-overlay);
+  color: #fff;
+  padding: 0.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.user-list button:hover {
+  background-color: #ff0066;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
