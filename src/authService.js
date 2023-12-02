@@ -40,10 +40,6 @@ export const registerUser = async (userData) => {
       const errorData = await response.json();
       throw new Error(`Error al registrar usuario: ${errorData.message}`);
     }
-
-    const data = await response.json();
-    localStorage.setItem(TOKEN_KEY, data.access_token);
-    return data.access_token;
   } catch (error) {
     console.error(error);
     throw error;
@@ -119,7 +115,9 @@ export const updateUserInfo = async (userId, updatedUserData) => {
 
 export const getToken = () => {
   // Obtiene el token del almacenamiento local
-  return localStorage.getItem(TOKEN_KEY);
+  const token = localStorage.getItem(TOKEN_KEY);
+  // console.log(token);
+  return token;
 };
 
 

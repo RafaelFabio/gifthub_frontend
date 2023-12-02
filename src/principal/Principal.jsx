@@ -152,7 +152,7 @@ function Principal() {
             await setUser();
 
             if (currentUser) {
-                console.log(`[Principal] currentUser: ${currentUser}`)
+                // console.log(`[Principal] currentUser: ${currentUser}`)
                 // Wishlist inicial del usuario actual
                 await updateUsername();
                 await updateWishlist();
@@ -204,7 +204,12 @@ function Principal() {
                                 </div>
                                 <h2>¡Para que sepan cuándo regalarte!</h2>
                                 <div className='principal-content principal-personal'>
-                                    <div className='wishlist personal-wishlist'>{userEvents}</div>
+                                    <div
+                                        className={`wishlist personal-wishlist ${(userEvents.length === 0) && "empty-list"}`}>
+                                        {userEvents.length === 0 ?
+                                            <h2>¡Añade tus eventos!</h2>
+                                            : userEvents}
+                                    </div>
                                     <AddEvent
                                         currentUser={currentUser}
                                         updateEvents={updateEvents} />

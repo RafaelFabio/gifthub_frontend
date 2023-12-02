@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { registerUser } from '../authService'; 
+import { registerUser } from '../authService';
 import './register.css';
 
 function Register() {
@@ -19,7 +19,7 @@ function Register() {
 
             const token = await registerUser({ username, name, email, birth_date, password });
 
-            console.log(token);
+            // console.log(token);
 
 
             setRegisterError(null);

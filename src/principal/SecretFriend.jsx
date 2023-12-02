@@ -18,8 +18,29 @@ export default function SecretFriend({ currentUser }) {
   const [emailsTabla, setEmailsTabla] = useState([]);
   const [ids, setIds] = useState([Number(currentUser)]);
   const [activeSantas, setActiveSantas] = useState([]);
+  const [friends, setFriends] = useState([]);
 
   useEffect(() => {
+
+    // Amigos para el select
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/${currentUser}/friends`,
+      {
+        headers: {
+          Authorization: `Bearer ${getToken()}`
+        }
+      })
+      .then((response) => {
+        const data = response.data;
+        const items = data.map((item) => {
+          return item.email;
+        })
+
+        // console.log(items);
+        setFriends(items);
+      }).catch((error) => {
+        console.log(error);
+      });
+
     updateActive();
   }, [currentUser]);
 
@@ -77,7 +98,9 @@ export default function SecretFriend({ currentUser }) {
           setErrorMsg("El email ingresado no es válido");
           console.log(error);
         });
-    }
+    } else {
+      setErrorMsg("Debes seleccionar algún amigo");
+    };
   }
 
   const updateActive = async () => {
@@ -125,7 +148,7 @@ export default function SecretFriend({ currentUser }) {
       if (ids.length >= 3) {
         // Se necesitan al menos 3 personas para que haya algún "secreto"
         const pairs = createPairs(ids);
-        console.log(pairs);
+        // console.log(pairs);
 
         axios.post(`${import.meta.env.VITE_BACKEND_URL}/secretsantas`, {
           start_date: start,
@@ -142,7 +165,7 @@ export default function SecretFriend({ currentUser }) {
                 assigned_friend_id: pair[1]
               })
                 .then((respuesta) => {
-                  console.log(respuesta.data)
+                  // console.log(respuesta.data)
 
                   // Restaurar valores
                   setBudget(null);
@@ -204,7 +227,7 @@ export default function SecretFriend({ currentUser }) {
               otherId = unused[0];
               if (otherId == id) {
                 // No se va a poder crear pares sin repetición
-                console.log("No fue posible en esta iteración");
+                // console.log("No fue posible en esta iteración");
               } else {
                 success = true;
               };
@@ -281,13 +304,22 @@ export default function SecretFriend({ currentUser }) {
           <h3>Amigos</h3>
 
           <form className="add-form">
-            <input
+            <select
               type="email"
               className="email-input"
               placeholder="Ingresa su email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required />
+              required>
+              <option value="">
+                Selecciona
+              </option>
+              {friends.map((amigo) => (
+                <option key={amigo} value={amigo}>
+                  {amigo}
+                </option>
+              ))}
+            </select>
             <button
               type="button"
               className="submit-btn"
@@ -304,8 +336,11 @@ export default function SecretFriend({ currentUser }) {
       </div>
       <div className="section-secret-friend">
         <h2>¡Tus amigos secretos!</h2>
-        <div className="wishlist friend-wishlist">
-          {activeSantas}
+        <div className={`wishlist friend-wishlist ${(activeSantas.length === 0) && "empty-list"}`}>
+          {activeSantas.length === 0 ?
+            <h2>¡Crea un amigo secreto!</h2>
+            :
+            activeSantas}
         </div>
       </div>
 

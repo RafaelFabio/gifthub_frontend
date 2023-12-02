@@ -17,7 +17,7 @@ function Wishlist({ isMine, currentUser, userId, calendar, userWishlist }) {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        console.log(`[Wishlist] currentUser: ${currentUser}`)
+        // console.log(`[Wishlist] currentUser: ${currentUser}`)
         if (!isMine) {
             // Si es la lista de un amigo (no del currentUser), userWishlist viene vacío
             axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/${userId}/products`,

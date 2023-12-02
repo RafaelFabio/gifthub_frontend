@@ -15,7 +15,7 @@ function AdminDashboard() {
     try {
       const users = await getUsers();
       setUserList(users);
-      console.log('Usuarios obtenidos:', users);
+      // console.log('Usuarios obtenidos:', users);
     } catch (error) {
       console.error('Error al obtener usuarios:', error);
     }

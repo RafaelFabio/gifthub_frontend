@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../authService'; 
+import { loginUser, getToken } from '../authService';
 import './banner.css';
 
 function Banner() {
     const [loginError, setLoginError] = useState(null);
     const navigate = useNavigate()
-    
+
     const handleLogin = async (event) => {
         event.preventDefault();
 
@@ -16,7 +16,7 @@ function Banner() {
 
             const token = await loginUser({ email, password });
 
-            console.log(token);
+            // console.log(token);
             localStorage.setItem('jwt', token);
 
             setLoginError(null);
@@ -37,22 +37,24 @@ function Banner() {
                 <h2>La nueva forma de regalar</h2>
                 <p>¡Regístrate y conecta con todos tus amigos!</p>
             </div>
-            <div className='login-form'>
-                <div className="bubble">
-                    <form onSubmit={handleLogin}>
-                        <h2>Iniciar sesión</h2>
-                        <label htmlFor="email">Email:</label>
-                        <input type="text" id="email" name="email" />
+            {/* Si el usuario no ha ingresado, se muestra el formulario de login */}
+            {(!getToken()) &&
+                <div className='login-form'>
+                    <div className="bubble">
+                        <form onSubmit={handleLogin}>
+                            <h2>Iniciar sesión</h2>
+                            <label htmlFor="email">Email:</label>
+                            <input type="text" id="email" name="email" />
 
-                        <label htmlFor="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" />
+                            <label htmlFor="password">Contraseña:</label>
+                            <input type="password" id="password" name="password" />
 
-                        <button type="submit">Iniciar sesión</button>
-                        {loginError && <div className="error-message">{loginError}</div>}
-                    </form>
-                    <p>¿No tienes cuenta? <a href="/register">Regístrate aquí</a></p>
-                </div>
-            </div>
+                            <button type="submit">Iniciar sesión</button>
+                            {loginError && <div className="error-message">{loginError}</div>}
+                        </form>
+                        <p>¿No tienes cuenta? <a href="/register">Regístrate aquí</a></p>
+                    </div>
+                </div>}
         </div>
     );
 }

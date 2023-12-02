@@ -25,7 +25,7 @@ export default function AddEvent({ currentUser, updateEvents }) {
                 date: date
             })
                 .then((response) => {
-                    console.log(response.data);
+                    // console.log(response.data);
 
                     // Restaurar valores
                     setType(null);
@@ -53,6 +53,9 @@ export default function AddEvent({ currentUser, updateEvents }) {
                 value={type}
                 onChange={(e) => setType(e.target.value)}
                 required>
+                <option value="">
+                    Selecciona
+                </option>
                 {eventos.map((evento) => (
                     <option key={evento} value={evento}>
                         {evento}

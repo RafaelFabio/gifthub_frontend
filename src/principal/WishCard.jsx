@@ -27,7 +27,7 @@ function WishCard({ productId, currentUser, wish, description, price, isMine, up
                         // El que reserva (currentUser) es el friend_id
                         friend_id: currentUser
                     }).then((response) => {
-                        console.log(response)
+                        // console.log(response)
                         setByMe(true);
                         setIcon(brokenIcon);
                     }).catch((error) => {
@@ -51,7 +51,7 @@ function WishCard({ productId, currentUser, wish, description, price, isMine, up
                 setByMe(false);
                 setIcon(giftIcon);
 
-                console.log(response)
+                // console.log(response)
             } catch (error) {
                 console.log(error)
             }
@@ -101,7 +101,7 @@ function WishCard({ productId, currentUser, wish, description, price, isMine, up
                             setByOther(true);
                         }
                     } else {
-                        console.log(`[${productId}] No one has reserved this product yet`)
+                        // console.log(`[${productId}] No one has reserved this product yet`)
                     }
 
                     // Se carga el componente una vez que ya se sepa qué hacer con el botón
